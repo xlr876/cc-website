@@ -1,17 +1,14 @@
 ---
-
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Contact from '../components/Contact.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="YOUR BUSINESS NAME | Clear support for meaningful work" description="YOUR BUSINESS NAME provides practical, thoughtful support for people and small teams building something useful.">
+	<Hero />
+	<Services />
+	<section class="border-y border-[var(--line)] bg-white"><div class="container grid gap-10 py-20 md:grid-cols-[0.8fr_1.2fr] md:items-center md:py-28"><p class="eyebrow">A different kind of partner</p><div><h2 class="display text-4xl leading-tight sm:text-5xl">You bring the ambition. We bring the grounded perspective.</h2><p class="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)]">Good support is not about taking over. It is about asking better questions, making the path visible, and helping you move with confidence.</p><a class="mt-7 inline-flex font-bold text-[var(--teal)]" href={`${base}/about`}>Get to know us <span class="ml-2" aria-hidden="true">-&gt;</span></a></div></div></section>
+	<Contact />
+</MainLayout>

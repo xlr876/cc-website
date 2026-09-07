@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #17232f;
+  --muted: #5d6b77;
+  --paper: #f6f8f6;
+  --white: #ffffff;
+  --line: #d9e2df;
+  --teal: #176c68;
+  --teal-dark: #0f514f;
+  --coral: #ef775f;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+}
+::selection {
+  background: #b9dfd8;
+}
+:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+}
+.eyebrow {
+  color: var(--teal);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.display {
+  font-family: var(--serif);
+  letter-spacing: -0.035em;
+}
+.container {
+  width: min(1120px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  padding: 0.75rem 1rem;
+  background: var(--ink);
+  color: white;
+  z-index: 50;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+.menu-panel[hidden] {
+  display: none;
+}
+@media (min-width: 768px) {
+  .container {
+    width: min(1120px, calc(100% - 5rem));
+  }
+}

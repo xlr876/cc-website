@@ -1,0 +1,51 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="overflow-hidden border-b border-[var(--line)] bg-[#dfeee9]">
+	<div class="container grid min-h-[35rem] items-center gap-12 py-16 md:grid-cols-[1.1fr_0.9fr] md:py-24">
+		<div class="max-w-2xl">
+			<p class="eyebrow">Thoughtful service. Real momentum.</p>
+			<h1 class="display mt-5 text-5xl leading-[0.98] text-[var(--ink)] sm:text-7xl">
+				Good work starts with a clear next step.
+			</h1>
+			<p class="mt-7 max-w-lg text-lg leading-8 text-[var(--muted)]">
+				YOUR BUSINESS NAME brings calm, capable support to the decisions and details that keep your business moving.
+			</p>
+			<div class="mt-9 flex flex-col gap-3 sm:flex-row">
+				<a
+					class="rounded-full bg-[var(--teal)] px-6 py-4 text-center font-bold text-white hover:bg-[var(--teal-dark)]"
+					href={`${base}/contact`}
+				>
+					Start a conversation
+				</a>
+				<a
+					class="rounded-full border border-[var(--teal)] px-6 py-4 text-center font-bold text-[var(--teal-dark)] hover:bg-white"
+					href={`${base}/#services`}
+				>
+					See what we do
+				</a>
+			</div>
+		</div>
+
+		<div class="relative mx-auto w-full max-w-sm md:max-w-none">
+			<div
+				class="relative aspect-square overflow-hidden rounded-[2rem] bg-[var(--teal)] shadow-2xl shadow-[#176c6833]"
+			>
+				<img
+					class="h-full w-full object-cover"
+					src={`${base}/images/women-in-office.jpg`}
+					alt="Professional workspace for translation and communication services"
+					loading="eager"
+					fetchpriority="high"
+				/>
+				<div class="absolute inset-x-5 bottom-5 rounded-2xl bg-[var(--ink)]/90 p-5 text-white backdrop-blur-sm">
+					<p class="display text-2xl leading-tight">Make room for the work that matters.</p>
+					<p class="mt-2 text-sm leading-6 text-[#d5eeea]">
+						A practical partner for thoughtful people building something useful.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

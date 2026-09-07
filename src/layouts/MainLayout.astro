@@ -1,0 +1,32 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props { title?: string; description?: string; }
+const { title = 'YOUR BUSINESS NAME | Practical support, thoughtfully delivered', description = 'YOUR BUSINESS NAME helps people and small teams move forward with clear advice and dependable service.' } = Astro.props;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.href;
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonical} />
+		<link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<a class="skip-link" href="#main-content">Skip to content</a>
+		<Navbar />
+		<main id="main-content"><slot /></main>
+		<Footer />
+	</body>
+</html>

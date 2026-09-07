@@ -1,0 +1,35 @@
+---
+const links = [{ href: '/', label: 'Home' }, { href: '/services', label: 'Services' }, { href: '/about', label: 'About' }, { href: '/contact', label: 'Contact' }];
+const base = import.meta.env.BASE_URL;
+---
+
+<header class="sticky top-0 z-40 border-b border-[var(--line)] bg-[color:var(--paper)]/95 backdrop-blur">
+	<div class="container flex min-h-[4.75rem] items-center justify-between gap-6">
+		<a href={base} class="text-lg font-bold tracking-tight text-[var(--ink)]" aria-label="YOUR BUSINESS NAME home"><span class="text-[var(--teal)]">YOUR</span> BUSINESS NAME</a>
+		<nav class="hidden items-center gap-8 md:flex" aria-label="Primary navigation">
+			{links.map((link) => <a class="text-sm font-semibold text-[var(--muted)] transition-colors hover:text-[var(--teal)]" href={`${base}${link.href}`}>{link.label}</a>)}
+			<a class="rounded-full bg-[var(--teal)] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[var(--teal-dark)]" href={`${base}/contact`}>Let's talk</a>
+		</nav>
+		<button id="menu-toggle" class="grid size-11 place-items-center rounded-full border border-[var(--line)] text-[var(--ink)] md:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu"><span class="text-xl" aria-hidden="true">=</span></button>
+	</div>
+	<div id="mobile-menu" class="menu-panel border-t border-[var(--line)] bg-[var(--paper)] md:hidden" hidden>
+		<nav class="container flex flex-col gap-1 py-4" aria-label="Mobile navigation">
+			{links.map((link) => <a class="rounded-lg px-3 py-3 font-semibold text-[var(--ink)] hover:bg-white" href={`${base}${link.href}`}>{link.label}</a>)}
+			<a class="mt-2 rounded-full bg-[var(--teal)] px-5 py-3 text-center font-bold text-white" href={`${base}/contact`}>Let's talk</a>
+		</nav>
+	</div>
+</header>
+
+<script>
+	const toggle = document.querySelector('#menu-toggle');
+	const menu = document.querySelector('#mobile-menu');
+	if (toggle && menu) {
+		toggle.addEventListener('click', () => {
+			const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+			toggle.setAttribute('aria-expanded', String(!isOpen));
+			toggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+			menu.toggleAttribute('hidden', isOpen);
+		});
+		menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { toggle.setAttribute('aria-expanded', 'false'); menu.setAttribute('hidden', ''); }));
+	}
+</script>

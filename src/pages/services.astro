@@ -1,0 +1,16 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+const base = import.meta.env.BASE_URL;
+
+const serviceDetails = [
+	{ number: '01', title: 'Clarity', summary: 'Make sense of the moving pieces and decide what deserves attention first.', points: ['A focused review of where things stand', 'A practical plan with clear priorities', 'A sounding board for important decisions'] },
+	{ number: '02', title: 'Capability', summary: 'Bring experienced support to the work that needs more time, care, or specialist attention.', points: ['Hands-on help with defined projects', 'Simple systems that fit how you work', 'Thoughtful follow-through from start to finish'] },
+	{ number: '03', title: 'Continuity', summary: 'Create the habits and foundations that help good work keep its momentum.', points: ['Regular check-ins and ongoing guidance', 'Documentation your team can actually use', 'A partner who understands the bigger picture'] },
+];
+---
+
+<MainLayout title="Services | YOUR BUSINESS NAME" description="Explore the clarity, capability, and continuity services from YOUR BUSINESS NAME.">
+	<section class="border-b border-[var(--line)] bg-[#dfeee9]"><div class="container py-20 md:py-28"><p class="eyebrow">Services</p><h1 class="display mt-5 max-w-3xl text-5xl leading-none sm:text-7xl">Support shaped around the work in front of you.</h1><p class="mt-7 max-w-xl text-lg leading-8 text-[var(--muted)]">There is no one-size-fits-all package here. We start with your context, then make the next useful move together.</p></div></section>
+	<section class="container py-16 md:py-24"><div class="grid gap-5">{serviceDetails.map((service) => <article class="grid gap-8 border-t border-[var(--line)] py-10 md:grid-cols-[0.25fr_0.75fr] md:py-14"><span class="font-bold text-[var(--coral)]">{service.number}</span><div class="grid gap-8 md:grid-cols-[0.8fr_1.2fr]"><div><h2 class="display text-4xl">{service.title}</h2><p class="mt-4 text-lg leading-7 text-[var(--muted)]">{service.summary}</p></div><ul class="space-y-4 text-[var(--muted)]">{service.points.map((point) => <li class="flex gap-3 leading-7"><span class="font-bold text-[var(--teal)]" aria-hidden="true">+</span>{point}</li>)}</ul></div></article>)}</div></section>
+	<section class="bg-[var(--teal)] text-white"><div class="container flex flex-col gap-7 py-16 md:flex-row md:items-center md:justify-between"><h2 class="display max-w-xl text-4xl">Have a particular challenge in mind?</h2><a class="rounded-full bg-white px-6 py-4 text-center font-bold text-[var(--teal-dark)]" href={`${base}/contact`}>Let's talk it through</a></div></section>
+</MainLayout>

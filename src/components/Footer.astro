@@ -1,0 +1,12 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<footer class="border-t border-[var(--line)] bg-white">
+	<div class="container grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr] md:py-16">
+		<div><p class="text-lg font-bold"><span class="text-[var(--teal)]">YOUR</span> BUSINESS NAME</p><p class="mt-4 max-w-xs text-sm leading-6 text-[var(--muted)]">Clear, capable support for the work that matters to you.</p></div>
+		<div><p class="text-xs font-bold uppercase tracking-[0.14em] text-[var(--muted)]">Explore</p><div class="mt-4 flex flex-col gap-3 text-sm font-semibold"><a href={`${base}/services`}>Services</a><a href={`${base}/about`}>About</a><a href={`${base}/contact`}>Contact</a></div></div>
+		<div><p class="text-xs font-bold uppercase tracking-[0.14em] text-[var(--muted)]">Get in touch</p><div class="mt-4 flex flex-col gap-3 text-sm text-[var(--muted)]"><a href="mailto:hello@example.com">hello@example.com</a><a href="tel:+15551234567">(555) 123-4567</a><span>YOUR CITY, STATE</span></div></div>
+	</div>
+	<div class="border-t border-[var(--line)]"><div class="container flex flex-col gap-2 py-5 text-xs text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between"><span>© {new Date().getFullYear()} YOUR BUSINESS NAME</span><span>Built for a better next step.</span></div></div>
+</footer>
