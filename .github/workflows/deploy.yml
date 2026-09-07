@@ -15,9 +15,6 @@ jobs:
     permissions:
       contents: read
       pages: write
-      # Required so that actions/configure-pages can enable GitHub Pages for
-      # this repository (source: GitHub Actions) if it hasn't been enabled yet.
-      administration: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
